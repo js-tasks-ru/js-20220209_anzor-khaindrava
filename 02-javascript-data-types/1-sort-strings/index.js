@@ -10,7 +10,7 @@ export function sortStrings(arr, param = 'asc') {
     newArr.push(el)
   })
 
-  newArr.sort(new Intl.Collator(undefined,{localeMatcher:'best fit', sensitivity:'accent'}).compare).sort((a, b)=>{
+  newArr.sort(new Intl.Collator('ru-en',{localeMatcher:'best fit', sensitivity:'accent'}).compare).sort((a, b)=>{
     if(a.toLowerCase() === b.toLowerCase()){
       if(a[0]>b[0]){
         return 1;

@@ -14,13 +14,26 @@ export function sortStrings(arr, param = 'asc') {
   if(param === 'asc') {
     newArr.sort((a, b) => {
       return a.localeCompare(b,['ru', 'en'],options)
+    }).sort((a ,b)=>{
+      if(a.toLowerCase() === b.toLowerCase()){
+        if(a[0]>b[0]){
+          return 1;
+        }
+        return -1;
+      }
     })
   } else {
     newArr.sort((a, b) => {
       return b.localeCompare(a,['ru', 'en'],options)
+    }).sort((a ,b)=>{
+      if(a.toLowerCase() === b.toLowerCase()){
+        if(a[0]<b[0]){
+          return 1;
+        }
+        return -1;
+      }
     })
   }
-
   return newArr;
 }
 

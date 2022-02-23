@@ -22,7 +22,8 @@ export function sortStrings(arr, param = 'asc') {
         return -1;
       }
     })
-  } else {
+  }
+  if(param === 'desc') {
     newArr.sort((a, b) => {
       return b.localeCompare(a,['ru', 'en'],options)
     }).sort((a ,b)=>{

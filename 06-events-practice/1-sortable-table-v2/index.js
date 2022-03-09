@@ -2,6 +2,24 @@ export default class SortableTable {
   element;
   subElements = {};
 
+  onSortClick = event => {
+    const col = event.target.closest('[data-sortable="true"]')
+    const togglerOrder = order => {
+      const orders = {
+        asc: 'asc',
+        desc: 'desc'
+      };
+      return orders[order];
+    };
+    if(col) {
+      const {id, order} = col.dataset;
+      const newOrder = togglerOrder(order);
+      const sortedData = this.sortData();
+    }
+  }
+
+
+
   constructor(headerConfig, {...data}) {
     this.isSortLocally = isSortLocally;
     this.config = headerConfig;
